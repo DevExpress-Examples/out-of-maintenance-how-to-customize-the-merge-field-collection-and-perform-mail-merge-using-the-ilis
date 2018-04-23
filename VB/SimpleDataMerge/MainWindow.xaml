@@ -1,0 +1,58 @@
+﻿<dxr:DXRibbonWindow
+    x:Class="SimpleDataMerge.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SimpleDataMerge"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxd="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
+    xmlns:dxo="http://schemas.devexpress.com/winfx/2008/xaml/office"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    Height="700" Width="1100"
+    SnapsToDevicePixels="True" UseLayoutRounding="True" Title="SimpleDataMerge"
+    >
+    <Grid>
+        <dxre:RichEditControl x:Name="richEdit" CommandBarStyle="Ribbon" ShowBorder="False" 
+                                  CustomizeMergeFields="OnRichEditCustomizeMergeFields" 
+                                  DocumentSource="MailMergeSimple.rtf">
+            <dxre:RichEditControl.MailMergeOptions>
+                <dxre:DXRichEditMailMergeOptions ViewMergedData="True" DataSource="{x:Static local:EmployeeData.Employees}" />
+            </dxre:RichEditControl.MailMergeOptions>
+            <dxre:RichEditControl.RibbonActions>
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonCategory_HeaderFooterTools}" />
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonCategory_TableTools}" />
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonCategory_PictureTools}" />
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_MailMerge}" PropertyName="IsSelected" Value="True" />
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_Insert}" PropertyName="IsVisible" Value="False" />
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_PageLayout}" PropertyName="IsVisible" Value="False" />
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_References}" PropertyName="IsVisible" Value="False" />
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_Review}" PropertyName="IsVisible" Value="False" />
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_View}" PropertyName="IsVisible" Value="False" />
+                <dxb:InsertAction Index="2" ContainerName="{x:Static dxre:DefaultBarItemNames.RibbonPage_MailMerge}">
+                    <dxr:RibbonPageGroup Caption="Customize Merge Fields" ShowCaptionButton="False">
+                        <dxb:BarButtonItem Content="Customize Merge Fields"
+                                               Hint="Customize Merge Fields"
+                                               Glyph="/SimpleDataMerge;component/Images/CustomizeMergeField_16x16.png"
+                                               LargeGlyph="/SimpleDataMerge;component/Images/CustomizeMergeField_32x32.png"
+                                               ItemClick="OnCustomizeMergeFields" />
+                    </dxr:RibbonPageGroup>
+                </dxb:InsertAction>
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonControl}" PropertyName="ApplicationMenu">
+                    <dxb:UpdateAction.Value>
+                        <dxr:ApplicationMenu>
+                            <dxr:ApplicationMenu.ItemLinks>
+                                <dxb:BarButtonItemLink BarItemName="{x:Static dxre:DefaultBarItemNames.RibbonItem_File_Common_New}" />
+                                <dxb:BarButtonItemLink BarItemName="{x:Static dxre:DefaultBarItemNames.RibbonItem_File_Common_Open}" />
+                                <dxb:BarButtonItemLink BarItemName="{x:Static dxre:DefaultBarItemNames.RibbonItem_File_Common_SaveAs}" />
+                                <dxb:BarButtonItemLink BarItemName="{x:Static dxre:DefaultBarItemNames.RibbonItem_File_Common_Print}" />
+                                <dxb:BarButtonItemLink BarItemName="{x:Static dxre:DefaultBarItemNames.RibbonItem_File_Common_PrintPreview}" />
+                            </dxr:ApplicationMenu.ItemLinks>
+                        </dxr:ApplicationMenu>
+                    </dxb:UpdateAction.Value>
+                </dxb:UpdateAction>
+            </dxre:RichEditControl.RibbonActions>
+        </dxre:RichEditControl>
+    </Grid>
+</dxr:DXRibbonWindow>
