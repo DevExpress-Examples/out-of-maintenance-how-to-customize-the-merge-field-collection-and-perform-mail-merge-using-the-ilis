@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
@@ -20,6 +19,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D80D6710-0733-43B5-A155-BB1CB1634437}
+		SolutionGuid = {63DFB396-F2EC-4982-8911-96B8EDBF62EC}
 	EndGlobalSection
 EndGlobal

@@ -1,26 +1,27 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>SimpleDataMerge</AssemblyName>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <Platforms>x86;AnyCPU</Platforms>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
-	  <GenerateRuntimeConfigDevFile>true</GenerateRuntimeConfigDevFile>
-    <DefaultItemExcludes>obj*/**</DefaultItemExcludes>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>Off</OptionStrict>
-    <OptionInfer>On</OptionInfer>
+    <GenerateRuntimeConfigDevFile>true</GenerateRuntimeConfigDevFile>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
   </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <None Update="MailMergeSimple.rtf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <AppDesigner Include="My Project\" />
+    <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.Data" Version="21.1.*-*" />
